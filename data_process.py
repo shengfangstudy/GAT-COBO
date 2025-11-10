@@ -20,14 +20,15 @@ class TelcomFraudDataset(DGLDataset):
         mx = r_mat_inv.dot(mx)
         return mx
 
-    def process(self,path="./data/"):
+    def process(self,path="./data/Sichuan/"):
         # load raw feature and labels
         idx_features_labels = np.genfromtxt("{}{}.csv".format(path, "all_feat_with_label"),
                                             dtype=np.dtype(str), delimiter=',', skip_header=1)
         features = spp.csr_matrix(idx_features_labels[:, 1:-1], dtype=np.float32)
 
         #normalize the feature with z-score
-        features=StandardScaler().fit_transform(features.todense())
+        # features=StandardScaler().fit_transform(features.todense())
+        features = StandardScaler().fit_transform(np.asarray(features.todense()))
         labels = np.array(idx_features_labels[:, -1], dtype=np.int_)
         self.labels=torch.tensor(labels)
         node_features = torch.from_numpy(np.array(features))
@@ -79,9 +80,9 @@ class TelcomFraudDataset(DGLDataset):
 
 def BUPT_process():
     # load feature,labels and edges
-    feature = np.genfromtxt("./data/TF.features", dtype=np.dtype(str), delimiter=' ')
-    labels = np.genfromtxt("./data/TF.labels", dtype=np.dtype(str), delimiter=' ')
-    edges = np.genfromtxt("./data/TF.edgelist", dtype=np.dtype(str), delimiter=' ')
+    feature = np.genfromtxt("./data/BUPT/TF.features", dtype=np.dtype(str), delimiter=' ')
+    labels = np.genfromtxt("./data/BUPT/TF.labels", dtype=np.dtype(str), delimiter=' ')
+    edges = np.genfromtxt("./data/BUPT/TF.edgelist", dtype=np.dtype(str), delimiter=' ')
 
     # normalize feature
     features = feature[:, 1:]

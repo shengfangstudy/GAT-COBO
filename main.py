@@ -2,7 +2,6 @@ import logging
 import argparse
 import time
 import numpy as np
-# from numpy import random
 import random
 import torch
 import torch.nn.functional as F
@@ -12,9 +11,8 @@ from model import GAT_COBO
 from sklearn.metrics import f1_score,classification_report,roc_auc_score,recall_score
 
 from dgl.data.utils import load_graphs
-from dgl.data.utils import makedirs, save_info, load_info
+from dgl.data.utils import load_info
 from sklearn.model_selection import train_test_split
-import pandas as pd
 from imblearn.metrics import geometric_mean_score
 import os
 import sys
@@ -25,7 +23,9 @@ import datetime
 	Paper: GAT-COBO: Cost-Sensitive Graph Neural Network for Anomaly Detection
 """
 
+# ====================== 随机种子设置 ============================
 def setup_seed(seed):
+    """确保每次运行结果一致（固定随机性）"""
     random.seed(seed)
     np.random.seed(seed)
     os.environ['PYTHONHASHSEED'] = str(seed)
@@ -37,42 +37,70 @@ def setup_seed(seed):
     dgl.seed(seed)
     dgl.random.seed(seed)
 
+
+
+# ====================== 准确率计算函数 ============================
 def accuracy(logits, labels):
-    _, indices = torch.max(logits, dim=1)
-    correct = torch.sum(indices == labels)
+    """
+    计算分类准确率
+    预测结果 logits: [num_samples, num_classes]
+    真实标签 labels: [num_samples]
+    """
+    _, indices = torch.max(logits, dim=1) # 取出每个样本预测概率最大的类别索引
+    correct = torch.sum(indices == labels) # 计算预测正确的样本数
     return correct.item() * 1.0 / len(labels)
 
+
+
+# ====================== 验证函数 ============================
 def evaluate(model, features, labels, mask):
+    """
+    在验证集上计算准确率和损失
+    """
     model.eval()
     with torch.no_grad():
         logits,_, attention = model(features)
-        logits = torch.reshape(logits, [logits.shape[0], -1])
-        logits = logits[mask]
+        logits = torch.reshape(logits, [logits.shape[0], -1]) # 防止 logits 有多余维度
+        logits = logits[mask] # 只保留验证集节点
         labels = labels[mask]
         loss_fcn = torch.nn.CrossEntropyLoss()
         loss = loss_fcn(logits, labels)
         return accuracy(logits, labels), loss, logits
 
+
+
+# ====================== 数据划分函数 ============================
 def gen_mask(g, train_rate, val_rate,IR,IR_set):
+    """
+    根据不平衡比例（IR）划分训练、验证、测试集
+    IR_set=0 时随机划分；否则根据欺诈类比例不平衡采样
+    """
     labels = g.ndata['label']
     g.ndata['label'] = labels.long()
     labels = np.array(labels)
     n_nodes = len(labels)
+
+    # 如果不设置不平衡，则随机划分
     if IR_set==0:
         index=list(range(n_nodes))
     # Unbalanced sampling based on IR
     else:
+        # 根据标签获取三种类型节点索引（欺诈类、正常类、快递类）
         fraud_index=np.where(labels == 1)[0].tolist()
         benign_index = np.where(labels == 0)[0].tolist()
         if len(np.unique(labels))==3:
             Courier_index=np.where(labels == 2)[0].tolist()
+
+        # 根据设定的IR调整采样比例
         if IR<(len(fraud_index)/len(benign_index)):
+            # 如果当前 fraud 比例太大（> IR）,就从 fraud 中随机少抽一些，变少一点
             number_sample = int(IR * len(benign_index))
             sampled_fraud_index = random.sample(fraud_index, number_sample)
             sampled_benign_index=benign_index
             if len(np.unique(labels)) == 3:
                 sampled_Courier_index=  random.sample(Courier_index, number_sample)
         else:
+            # 如果当前 fraud 比例太小（< IR）,就从 benign 中随机少抽一些，变少一点
             number_sample = int( len(fraud_index)/IR)
             sampled_benign_index=random.sample(benign_index, number_sample)
             sampled_fraud_index=fraud_index
@@ -84,10 +112,13 @@ def gen_mask(g, train_rate, val_rate,IR,IR_set):
             index = sampled_benign_index + sampled_fraud_index+sampled_Courier_index
         labels=labels[index]
 
+    # 划分训练集、验证集、测试集
     train_idx, val_test_idx, _, y_validate_test = train_test_split(index, labels, stratify=labels, train_size=train_rate,test_size=1-train_rate,
                                                  random_state=2, shuffle=True)
     val_idx, test_idx, _, _ = train_test_split(val_test_idx,y_validate_test, train_size=val_rate/(1-train_rate), test_size=1-val_rate/(1-train_rate),
                                                      random_state=2, shuffle=True)
+    
+    # 构造 mask
     train_mask = torch.zeros(n_nodes, dtype=torch.bool)
     val_mask = torch.zeros(n_nodes, dtype=torch.bool)
     test_mask = torch.zeros(n_nodes, dtype=torch.bool)
@@ -132,10 +163,12 @@ parser.add_argument('--IR_set', type=int, default=0, help='whether to set imbala
 parser.add_argument('--cost', type=int, default=2, help="set the way to calculate cost matrix,0:'uniform',1:'inverse',2:'log1p-inverse' ")
 args = parser.parse_args()
 print(args)
+
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 setup_seed(args.seed)
 
+# set Beijing time for logging
 def beijing(sec,what):
     beijing_time = datetime.datetime.now() + datetime.timedelta(hours=8)
     return beijing_time.timetuple()
@@ -171,9 +204,12 @@ else:
     raise Exception("Dataset dosen't exist!")
 
 for e in g.etypes:
+    '''
+    确保每个节点都有一条自环边（因为在图注意力中，节点要能“看见自己”）
+    '''
     g = g.int().to(device)
-    dgl.remove_self_loop(g,etype=e)
-    dgl.add_self_loop(g,etype=e)
+    dgl.remove_self_loop(g,etype=e) # remove self-loops
+    dgl.add_self_loop(g,etype=e) # add self-loops
 
 features = g.ndata['feat'].float()
 labels = g.ndata['label']
@@ -201,9 +237,13 @@ model = GAT_COBO(g,
             args.residual
             )
 # print(model)
+
+# early stopping
 if args.early_stop:
     stopper = EarlyStopping(args.patience)
 model.to(device)
+
+
 loss_fcn = torch.nn.CrossEntropyLoss()
 
 # train
@@ -211,12 +251,14 @@ start_time = time.time()
 last_time = start_time
 
 # initialize node weights in Adaboost
-sample_weights = torch.ones(g.adj().shape[0])
-sample_weights = sample_weights[train_mask]
-sample_weights = sample_weights / sample_weights.sum()
+# sample_weights = torch.ones(g.adj().shape[0])
+sample_weights = torch.ones(g.adj().shape[0], device=train_mask.device)
+sample_weights = sample_weights[train_mask] # only for train nodes
+sample_weights = sample_weights / sample_weights.sum() # normalize
 sample_weights = sample_weights.to(device)
-results = torch.zeros(g.adj().shape[0], n_classes).to(device)
-ALL_epochs = 0
+
+
+results = torch.zeros(g.adj().shape[0], n_classes).to(device) # final results
 
 # Cost matrix calculation:'uniform', 'inverse', 'log1p-inverse'
 how_dic={0:'uniform',1:'inverse',2:'log1p-inverse'}
@@ -225,7 +267,7 @@ cost_matrix = _validate_cost_matrix(pmatrix, n_classes)
 cost_matrix = cost_table_calc(cost_matrix)
 
 for layer in range(args.layers):
-    # free cache
+    # free cache 把 GPU 上已经不用了但还占着的缓存显存释放掉 不会清掉模型的参数和当前需要的张量，只清缓存
     if hasattr(torch.cuda, 'empty_cache'):
         torch.cuda.empty_cache()
 
@@ -237,17 +279,21 @@ for layer in range(args.layers):
         stopper.counter = 0
 
     # use optimizer
+    # 有些参数可能不需要训练（requires_grad=False），比如冻结层，这里用 filter 过滤掉这些
     optimizer = torch.optim.Adam(filter(lambda p: p.requires_grad, model.parameters()), lr=args.lr, weight_decay=args.weight_decay)
     for epoch in range(args.epochs):
         model.train()
+
         logits,logits_GAT, _ = model(features)
         logits = torch.reshape(logits, [logits.shape[0], -1])
         logits_GAT = torch.reshape(logits_GAT, [logits.shape[0], -1])
+
         # Eq.(27) in the paper
         loss = F.nll_loss(F.log_softmax(logits[train_mask], 1), labels[train_mask], reduction='none')\
         +args.att_loss_weight*F.nll_loss(F.log_softmax(logits_GAT[train_mask], 1), labels[train_mask], reduction='none')
         loss = loss * sample_weights
         loss = loss.sum()
+
         train_acc = accuracy(logits[train_mask], labels[train_mask])
         train_loss = loss.item() * 1.0
 
