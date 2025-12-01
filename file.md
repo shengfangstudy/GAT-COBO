@@ -5,9 +5,20 @@ data
     node_adj_sparse是图邻接矩阵，GAT-COBO的构图
   Sichuan_tele.bin是数据预处理后得到的图dgl数据（由data_process文件得到）
   Sichuan_tele.pkl是只有类别（由data_process文件得到）
+
 environment文件是运行环境
+main.py是最原始的代码+跑通，但是运行时得指定参数，其它代码运行不需要指定参数
+main_sichuan0.py是在原有代码基础上跑通，并设置好Sichuan数据集的运行参数
+main_bupt.py是在原有代码基础上跑通，并设置好BUPT数据集的运行参数
+model.py是原始的代码+跑通
+README.md是作者的
+utils是工具类
+data_process.py原有代码跑通构建数据集
+es_checkpoint.pt是应用早停技术的最佳模型，不使用早停，就没有
 
 
+## 加上监控
+main_sichuan1.py是原有代码跑通-->加上监控机制
 training_records_sichuan_0是在原有代码上加了训练监控的训练记录
   时间文件是每一次模型训练的结果记录
     experiment_summary是模型的参数
@@ -15,11 +26,9 @@ training_records_sichuan_0是在原有代码上加了训练监控的训练记录
     layer_2_metrics是第一个弱分类器的曲线，Loss（应用权重了）、AUC、F1、Recall（Macro）
   all_training_logs详细日志，记录了每一次训练的信息
 
-es_checkpoint.pt是应用早停技术的最佳模型，不使用早停，就没有
-main_bupt.py是在原有代码基础上跑通，并设置好BUPT数据集的运行参数
-main_sichuan.py是原有代码跑通-->加上监控机制
-main_sichuan0.py是在原有代码基础上跑通，并设置好Sichuan数据集的运行参数
-main.py是最原始的代码+跑通，但是运行时得指定参数，其它代码运行不需要指定参数
-model.py是原始的代码+跑通
-README.md是作者的
-utils是工具类
+##  主叫协同图
+buildLSG.py主叫协同图稀疏矩阵构建
+data_process_zhu.py主叫协同图数据集构建
+Sichuan_tele_zhu.bin是数据预处理后得到的图dgl数据（由data_process文件得到）
+main_sichuan1.py是原有代码跑通-->加上监控机制-->主叫协同图
+training_records_sichuan_1
