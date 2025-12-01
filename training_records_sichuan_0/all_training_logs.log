@@ -1,0 +1,413 @@
+2025-12-01 10:55:14 - 
+==================== New Experiment Started: 2025-12-01_10-55-14 ====================
+2025-12-01 10:55:14 - Run Directory: training_records_sichuan/2025-12-01_10-55-14
+2025-12-01 10:55:14 - Arguments: Namespace(dataset='Sichuan', train_size=0.6, lr=0.002, hid=128, dropout=0, adj_dropout=0.4, attn_drop=0.5, attention_weight=0.1, feature_weight=0.1, layers=2, num_layers=1, num_heads=1, num_out_heads=1, weight_decay=0.001, epochs=400, patience=200, in_drop=0.1, early_stop=False, residual=False, negative_slope=0.2, att_loss_weight=0.5, IR=0.1, IR_set=0, cost=2, seed=42, print_interval=50, blank=0)
+2025-12-01 10:55:15 - |This is the 1th layer!|
+2025-12-01 10:55:17 - [Layer 1] Ep 0: Loss=1.3210/0.6703 | AUC=0.5305/0.6836 | F1=0.5077/0.6151 | Rec=0.5077/0.6106 | G-Mean=0.4718/0.5436
+2025-12-01 10:55:19 - [Layer 1] Ep 50: Loss=0.4175/0.2701 | AUC=0.9417/0.9336 | F1=0.8902/0.8776 | Rec=0.8724/0.8579 | G-Mean=0.8663/0.8499
+2025-12-01 10:55:21 - [Layer 1] Ep 100: Loss=0.3695/0.2552 | AUC=0.9594/0.9410 | F1=0.9208/0.8856 | Rec=0.9080/0.8708 | G-Mean=0.9053/0.8657
+2025-12-01 10:55:23 - [Layer 1] Ep 150: Loss=0.3466/0.2512 | AUC=0.9664/0.9446 | F1=0.9270/0.8874 | Rec=0.9145/0.8747 | G-Mean=0.9121/0.8705
+2025-12-01 10:55:24 - [Layer 1] Ep 200: Loss=0.3266/0.2513 | AUC=0.9717/0.9459 | F1=0.9322/0.8932 | Rec=0.9215/0.8803 | G-Mean=0.9197/0.8764
+2025-12-01 10:55:26 - [Layer 1] Ep 250: Loss=0.3237/0.2515 | AUC=0.9743/0.9468 | F1=0.9372/0.8958 | Rec=0.9257/0.8849 | G-Mean=0.9238/0.8817
+2025-12-01 10:55:28 - [Layer 1] Ep 300: Loss=0.3096/0.2534 | AUC=0.9773/0.9464 | F1=0.9382/0.9005 | Rec=0.9265/0.8892 | G-Mean=0.9246/0.8861
+2025-12-01 10:55:31 - [Layer 1] Ep 350: Loss=0.2988/0.2564 | AUC=0.9790/0.9461 | F1=0.9448/0.8987 | Rec=0.9343/0.8880 | G-Mean=0.9328/0.8850
+2025-12-01 10:55:32 - |This is the 2th layer!|
+2025-12-01 10:55:33 - [Layer 2] Ep 0: Loss=1.0036/0.6741 | AUC=0.9418/0.9278 | F1=0.8887/0.8775 | Rec=0.8799/0.8674 | G-Mean=0.8770/0.8637
+2025-12-01 10:55:35 - [Layer 2] Ep 50: Loss=0.9050/0.6113 | AUC=0.8696/0.8650 | F1=0.8313/0.8267 | Rec=0.8344/0.8305 | G-Mean=0.8331/0.8292
+2025-12-01 10:55:36 - [Layer 2] Ep 100: Loss=0.8355/0.5513 | AUC=0.8761/0.8720 | F1=0.8351/0.8290 | Rec=0.8370/0.8316 | G-Mean=0.8355/0.8301
+2025-12-01 10:55:38 - [Layer 2] Ep 150: Loss=0.8012/0.5109 | AUC=0.8866/0.8824 | F1=0.8388/0.8351 | Rec=0.8387/0.8351 | G-Mean=0.8367/0.8331
+2025-12-01 10:55:40 - [Layer 2] Ep 200: Loss=0.7787/0.4857 | AUC=0.8947/0.8885 | F1=0.8445/0.8424 | Rec=0.8425/0.8399 | G-Mean=0.8401/0.8373
+2025-12-01 10:55:42 - [Layer 2] Ep 250: Loss=0.7629/0.4694 | AUC=0.8995/0.8927 | F1=0.8464/0.8461 | Rec=0.8430/0.8416 | G-Mean=0.8402/0.8385
+2025-12-01 10:55:44 - [Layer 2] Ep 300: Loss=0.7552/0.4583 | AUC=0.9006/0.8957 | F1=0.8484/0.8451 | Rec=0.8439/0.8403 | G-Mean=0.8409/0.8371
+2025-12-01 10:55:46 - [Layer 2] Ep 350: Loss=0.7468/0.4509 | AUC=0.9044/0.8974 | F1=0.8518/0.8459 | Rec=0.8463/0.8409 | G-Mean=0.8431/0.8376
+2025-12-01 10:55:48 - 
+Final Test Report:
+              precision    recall  f1-score   support
+
+           0     0.9227    0.9771    0.9492       831
+           1     0.9444    0.8261    0.8813       391
+
+    accuracy                         0.9288      1222
+   macro avg     0.9336    0.9016    0.9152      1222
+weighted avg     0.9297    0.9288    0.9274      1222
+
+2025-12-01 10:55:48 - Final Result -> Macro AUC: 0.9505, Macro F1: 0.9152, Macro Recall: 0.9016, G-mean: 0.8984, Acc: 0.9288
+2025-12-01 10:55:48 - Experiment finished in 0m 33s
+2025-12-01 10:55:48 - Experiment summary saved to training_records_sichuan/2025-12-01_10-55-14/experiment_summary.json
+2025-12-01 11:17:09 - 
+==================== New Experiment Started: 2025-12-01_11-17-09 ====================
+2025-12-01 11:17:09 - Run Directory: training_records_sichuan/2025-12-01_11-17-09
+2025-12-01 11:17:09 - Arguments: Namespace(dataset='Sichuan', train_size=0.6, lr=0.002, hid=128, dropout=0, adj_dropout=0.4, attn_drop=0.5, attention_weight=0.1, feature_weight=0.1, layers=2, num_layers=1, num_heads=1, num_out_heads=1, weight_decay=0.001, epochs=400, patience=30, in_drop=0.1, early_stop=True, residual=False, negative_slope=0.2, att_loss_weight=0.5, IR=0.1, IR_set=0, cost=2, seed=42, print_interval=50, blank=0)
+2025-12-01 11:17:10 - |This is the 1th layer!|
+2025-12-01 11:17:13 - [Layer 1] Ep 0: Loss=1.3210/0.6703 | AUC=0.5305/0.6836 | F1=0.5077/0.6151 | Rec=0.5077/0.6106 | G-Mean=0.4718/0.5436
+2025-12-01 11:17:15 - [Layer 1] Ep 50: Loss=0.4175/0.2701 | AUC=0.9417/0.9336 | F1=0.8902/0.8776 | Rec=0.8724/0.8579 | G-Mean=0.8663/0.8499
+2025-12-01 11:17:17 - [Layer 1] Ep 100: Loss=0.3695/0.2552 | AUC=0.9594/0.9410 | F1=0.9208/0.8856 | Rec=0.9080/0.8708 | G-Mean=0.9053/0.8657
+2025-12-01 11:17:17 - Early stopping triggered at epoch 112
+2025-12-01 11:17:18 - Best model saved to training_records_sichuan/2025-12-01_11-17-09/best_model.pt
+2025-12-01 11:17:18 - |This is the 2th layer!|
+2025-12-01 11:17:19 - [Layer 2] Ep 0: Loss=1.0169/0.6796 | AUC=0.9319/0.9258 | F1=0.8794/0.8747 | Rec=0.8679/0.8649 | G-Mean=0.8638/0.8612
+2025-12-01 11:17:19 - Early stopping triggered at epoch 0
+2025-12-01 11:17:19 - Best model saved to training_records_sichuan/2025-12-01_11-17-09/best_model.pt
+2025-12-01 11:17:19 - 
+Final Test Report:
+              precision    recall  f1-score   support
+
+           0     0.9049    0.9735    0.9380       831
+           1     0.9329    0.7826    0.8512       391
+
+    accuracy                         0.9124      1222
+   macro avg     0.9189    0.8781    0.8946      1222
+weighted avg     0.9139    0.9124    0.9102      1222
+
+2025-12-01 11:17:19 - Final Result -> Macro AUC: 0.9484, Macro F1: 0.8946, Macro Recall: 0.8781, G-mean: 0.8729, Acc: 0.9124
+2025-12-01 11:17:19 - Experiment finished in 0m 10s
+2025-12-01 11:17:19 - Experiment summary saved to training_records_sichuan/2025-12-01_11-17-09/experiment_summary.json
+2025-12-01 11:20:35 - 
+==================== New Experiment Started: 2025-12-01_11-20-35 ====================
+2025-12-01 11:20:35 - Run Directory: training_records_sichuan/2025-12-01_11-20-35
+2025-12-01 11:20:35 - Arguments: Namespace(dataset='Sichuan', train_size=0.6, lr=0.002, hid=128, dropout=0, adj_dropout=0.4, attn_drop=0.5, attention_weight=0.1, feature_weight=0.1, layers=2, num_layers=1, num_heads=1, num_out_heads=1, weight_decay=0.001, epochs=400, patience=30, in_drop=0.1, early_stop=True, residual=False, negative_slope=0.2, att_loss_weight=0.5, IR=0.1, IR_set=0, cost=2, seed=42, print_interval=50, blank=0)
+2025-12-01 11:20:35 - |This is the 1th layer!|
+2025-12-01 11:20:39 - [Layer 1] Ep 0: Loss=1.3210/0.6703 | AUC=0.5305/0.6836 | F1=0.5077/0.6151 | Rec=0.5077/0.6106 | G-Mean=0.4718/0.5436
+2025-12-01 11:20:41 - [Layer 1] Ep 50: Loss=0.4175/0.2701 | AUC=0.9417/0.9336 | F1=0.8902/0.8776 | Rec=0.8724/0.8579 | G-Mean=0.8663/0.8499
+2025-12-01 11:20:43 - [Layer 1] Ep 100: Loss=0.3695/0.2552 | AUC=0.9594/0.9410 | F1=0.9208/0.8856 | Rec=0.9080/0.8708 | G-Mean=0.9053/0.8657
+2025-12-01 11:20:43 - Early stopping triggered at epoch 112
+2025-12-01 11:20:44 - Best model saved to training_records_sichuan/2025-12-01_11-20-35/best_model.pt
+2025-12-01 11:20:44 - |This is the 2th layer!|
+2025-12-01 11:20:44 - [Layer 2] Ep 0: Loss=1.0169/0.6796 | AUC=0.9319/0.9258 | F1=0.8794/0.8747 | Rec=0.8679/0.8649 | G-Mean=0.8638/0.8612
+2025-12-01 11:20:45 - Early stopping triggered at epoch 30
+2025-12-01 11:20:46 - Best model saved to training_records_sichuan/2025-12-01_11-20-35/best_model.pt
+2025-12-01 11:20:46 - 
+Final Test Report:
+              precision    recall  f1-score   support
+
+           0     0.9049    0.9735    0.9380       831
+           1     0.9329    0.7826    0.8512       391
+
+    accuracy                         0.9124      1222
+   macro avg     0.9189    0.8781    0.8946      1222
+weighted avg     0.9139    0.9124    0.9102      1222
+
+2025-12-01 11:20:46 - Final Result -> Macro AUC: 0.9484, Macro F1: 0.8946, Macro Recall: 0.8781, G-mean: 0.8729, Acc: 0.9124
+2025-12-01 11:20:46 - Experiment finished in 0m 11s
+2025-12-01 11:20:46 - Experiment summary saved to training_records_sichuan/2025-12-01_11-20-35/experiment_summary.json
+2025-12-01 12:12:54 - 
+==================== New Experiment Started: 2025-12-01_12-12-54 ====================
+2025-12-01 12:12:54 - Run Directory: training_records_sichuan/2025-12-01_12-12-54
+2025-12-01 12:12:54 - Arguments: Namespace(dataset='Sichuan', train_size=0.6, lr=0.002, hid=128, dropout=0, adj_dropout=0.4, attn_drop=0.5, attention_weight=0.1, feature_weight=0.1, layers=2, num_layers=1, num_heads=1, num_out_heads=1, weight_decay=0.001, epochs=400, patience=30, in_drop=0.1, early_stop=False, residual=False, negative_slope=0.2, att_loss_weight=0.5, IR=0.1, IR_set=0, cost=2, seed=42, print_interval=50, blank=0)
+2025-12-01 12:12:54 - |This is the 1th layer!|
+2025-12-01 12:12:56 - [Layer 1] Ep 0: Loss=1.3210/0.6703 | AUC=0.5305/0.6836 | F1=0.5077/0.6151 | Rec=0.5077/0.6106 | G-Mean=0.4718/0.5436
+2025-12-01 12:12:58 - [Layer 1] Ep 50: Loss=0.4175/0.2701 | AUC=0.9417/0.9336 | F1=0.8902/0.8776 | Rec=0.8724/0.8579 | G-Mean=0.8663/0.8499
+2025-12-01 12:13:00 - [Layer 1] Ep 100: Loss=0.3695/0.2552 | AUC=0.9594/0.9410 | F1=0.9208/0.8856 | Rec=0.9080/0.8708 | G-Mean=0.9053/0.8657
+2025-12-01 12:13:02 - [Layer 1] Ep 150: Loss=0.3466/0.2512 | AUC=0.9664/0.9446 | F1=0.9270/0.8874 | Rec=0.9145/0.8747 | G-Mean=0.9121/0.8705
+2025-12-01 12:13:04 - [Layer 1] Ep 200: Loss=0.3266/0.2513 | AUC=0.9717/0.9459 | F1=0.9322/0.8932 | Rec=0.9215/0.8803 | G-Mean=0.9197/0.8764
+2025-12-01 12:13:06 - [Layer 1] Ep 250: Loss=0.3237/0.2515 | AUC=0.9743/0.9468 | F1=0.9372/0.8958 | Rec=0.9257/0.8849 | G-Mean=0.9238/0.8817
+2025-12-01 12:13:08 - [Layer 1] Ep 300: Loss=0.3096/0.2534 | AUC=0.9773/0.9464 | F1=0.9382/0.9005 | Rec=0.9265/0.8892 | G-Mean=0.9246/0.8861
+2025-12-01 12:13:10 - [Layer 1] Ep 350: Loss=0.2988/0.2564 | AUC=0.9790/0.9461 | F1=0.9448/0.8987 | Rec=0.9343/0.8880 | G-Mean=0.9328/0.8850
+2025-12-01 12:13:11 - |This is the 2th layer!|
+2025-12-01 12:13:12 - [Layer 2] Ep 0: Loss=1.0036/0.6741 | AUC=0.9418/0.9278 | F1=0.8887/0.8775 | Rec=0.8799/0.8674 | G-Mean=0.8770/0.8637
+2025-12-01 12:13:14 - [Layer 2] Ep 50: Loss=0.9050/0.6113 | AUC=0.8696/0.8650 | F1=0.8313/0.8267 | Rec=0.8344/0.8305 | G-Mean=0.8331/0.8292
+2025-12-01 12:13:16 - [Layer 2] Ep 100: Loss=0.8355/0.5513 | AUC=0.8761/0.8720 | F1=0.8351/0.8290 | Rec=0.8370/0.8316 | G-Mean=0.8355/0.8301
+2025-12-01 12:13:18 - [Layer 2] Ep 150: Loss=0.8012/0.5109 | AUC=0.8866/0.8824 | F1=0.8388/0.8351 | Rec=0.8387/0.8351 | G-Mean=0.8367/0.8331
+2025-12-01 12:13:20 - [Layer 2] Ep 200: Loss=0.7787/0.4857 | AUC=0.8947/0.8885 | F1=0.8445/0.8424 | Rec=0.8425/0.8399 | G-Mean=0.8401/0.8373
+2025-12-01 12:13:21 - [Layer 2] Ep 250: Loss=0.7629/0.4694 | AUC=0.8995/0.8927 | F1=0.8464/0.8461 | Rec=0.8430/0.8416 | G-Mean=0.8402/0.8385
+2025-12-01 12:13:23 - [Layer 2] Ep 300: Loss=0.7552/0.4583 | AUC=0.9006/0.8957 | F1=0.8484/0.8451 | Rec=0.8439/0.8403 | G-Mean=0.8409/0.8371
+2025-12-01 12:13:25 - [Layer 2] Ep 350: Loss=0.7468/0.4509 | AUC=0.9044/0.8974 | F1=0.8518/0.8459 | Rec=0.8463/0.8409 | G-Mean=0.8431/0.8376
+2025-12-01 12:13:27 - 
+Final Test Report:
+              precision    recall  f1-score   support
+
+           0     0.9227    0.9771    0.9492       831
+           1     0.9444    0.8261    0.8813       391
+
+    accuracy                         0.9288      1222
+   macro avg     0.9336    0.9016    0.9152      1222
+weighted avg     0.9297    0.9288    0.9274      1222
+
+2025-12-01 12:13:27 - Final Result -> Macro AUC: 0.9505, Macro F1: 0.9152, Macro Recall: 0.9016, G-mean: 0.8984, Acc: 0.9288
+2025-12-01 12:13:27 - Experiment finished in 0m 32s
+2025-12-01 12:13:27 - Experiment summary saved to training_records_sichuan/2025-12-01_12-12-54/experiment_summary.json
+2025-12-01 12:17:56 - 
+==================== New Experiment Started: 2025-12-01_12-17-56 ====================
+2025-12-01 12:17:56 - Run Directory: training_records_sichuan/2025-12-01_12-17-56
+2025-12-01 12:17:56 - Arguments: Namespace(dataset='Sichuan', train_size=0.6, lr=0.002, hid=128, dropout=0, adj_dropout=0.4, attn_drop=0.5, attention_weight=0.1, feature_weight=0.1, layers=2, num_layers=1, num_heads=1, num_out_heads=1, weight_decay=0.001, epochs=400, patience=30, in_drop=0.1, early_stop=False, residual=False, negative_slope=0.2, att_loss_weight=0.5, IR=0.1, IR_set=0, cost=2, seed=42, print_interval=50, blank=0)
+2025-12-01 12:17:56 - |This is the 1th layer!|
+2025-12-01 12:17:58 - [Layer 1] Ep 0: Loss=1.3210/0.6703 | AUC=0.5305/0.6836 | F1=0.5077/0.6151 | Rec=0.5077/0.6106 | G-Mean=0.4718/0.5436
+2025-12-01 12:18:00 - [Layer 1] Ep 50: Loss=0.4175/0.2701 | AUC=0.9417/0.9336 | F1=0.8902/0.8776 | Rec=0.8724/0.8579 | G-Mean=0.8663/0.8499
+2025-12-01 12:18:02 - [Layer 1] Ep 100: Loss=0.3695/0.2552 | AUC=0.9594/0.9410 | F1=0.9208/0.8856 | Rec=0.9080/0.8708 | G-Mean=0.9053/0.8657
+2025-12-01 12:18:04 - [Layer 1] Ep 150: Loss=0.3465/0.2512 | AUC=0.9664/0.9446 | F1=0.9270/0.8874 | Rec=0.9145/0.8747 | G-Mean=0.9121/0.8705
+2025-12-01 12:18:06 - [Layer 1] Ep 200: Loss=0.3267/0.2513 | AUC=0.9717/0.9459 | F1=0.9322/0.8932 | Rec=0.9215/0.8803 | G-Mean=0.9197/0.8764
+2025-12-01 12:18:08 - [Layer 1] Ep 250: Loss=0.3237/0.2515 | AUC=0.9743/0.9468 | F1=0.9372/0.8958 | Rec=0.9257/0.8849 | G-Mean=0.9238/0.8817
+2025-12-01 12:18:10 - [Layer 1] Ep 300: Loss=0.3097/0.2534 | AUC=0.9773/0.9464 | F1=0.9382/0.9005 | Rec=0.9265/0.8892 | G-Mean=0.9246/0.8861
+2025-12-01 12:18:12 - [Layer 1] Ep 350: Loss=0.2988/0.2564 | AUC=0.9790/0.9461 | F1=0.9448/0.8987 | Rec=0.9343/0.8880 | G-Mean=0.9328/0.8850
+2025-12-01 12:18:14 - |This is the 2th layer!|
+2025-12-01 12:18:14 - [Layer 2] Ep 0: Loss=1.0036/0.6741 | AUC=0.9418/0.9278 | F1=0.8887/0.8775 | Rec=0.8799/0.8674 | G-Mean=0.8770/0.8637
+2025-12-01 12:18:16 - [Layer 2] Ep 50: Loss=0.9050/0.6113 | AUC=0.8695/0.8649 | F1=0.8313/0.8267 | Rec=0.8344/0.8305 | G-Mean=0.8331/0.8292
+2025-12-01 12:18:18 - [Layer 2] Ep 100: Loss=0.8355/0.5513 | AUC=0.8761/0.8720 | F1=0.8351/0.8290 | Rec=0.8370/0.8316 | G-Mean=0.8355/0.8301
+2025-12-01 12:18:20 - [Layer 2] Ep 150: Loss=0.8012/0.5109 | AUC=0.8865/0.8824 | F1=0.8388/0.8351 | Rec=0.8387/0.8351 | G-Mean=0.8367/0.8331
+2025-12-01 12:18:22 - [Layer 2] Ep 200: Loss=0.7787/0.4857 | AUC=0.8947/0.8884 | F1=0.8448/0.8424 | Rec=0.8427/0.8399 | G-Mean=0.8403/0.8373
+2025-12-01 12:18:24 - [Layer 2] Ep 250: Loss=0.7629/0.4694 | AUC=0.8995/0.8926 | F1=0.8464/0.8461 | Rec=0.8430/0.8416 | G-Mean=0.8402/0.8385
+2025-12-01 12:18:26 - [Layer 2] Ep 300: Loss=0.7552/0.4583 | AUC=0.9006/0.8956 | F1=0.8484/0.8451 | Rec=0.8439/0.8403 | G-Mean=0.8409/0.8371
+2025-12-01 12:18:28 - [Layer 2] Ep 350: Loss=0.7468/0.4509 | AUC=0.9043/0.8974 | F1=0.8518/0.8459 | Rec=0.8463/0.8409 | G-Mean=0.8431/0.8376
+2025-12-01 12:18:30 - 
+Final Test Report:
+              precision    recall  f1-score   support
+
+           0     0.9227    0.9771    0.9492       831
+           1     0.9444    0.8261    0.8813       391
+
+    accuracy                         0.9288      1222
+   macro avg     0.9336    0.9016    0.9152      1222
+weighted avg     0.9297    0.9288    0.9274      1222
+
+2025-12-01 12:18:30 - Final Result -> Macro AUC: 0.9505, Macro F1: 0.9152, Macro Recall: 0.9016, G-mean: 0.8984, Acc: 0.9288
+2025-12-01 12:18:30 - Experiment finished in 0m 33s
+2025-12-01 12:18:30 - Experiment summary saved to training_records_sichuan/2025-12-01_12-17-56/experiment_summary.json
+2025-12-01 12:19:35 - 
+==================== New Experiment Started: 2025-12-01_12-19-35 ====================
+2025-12-01 12:19:35 - Run Directory: training_records_sichuan/2025-12-01_12-19-35
+2025-12-01 12:19:35 - Arguments: Namespace(dataset='Sichuan', train_size=0.6, lr=0.002, hid=128, dropout=0, adj_dropout=0.4, attn_drop=0.5, attention_weight=0.1, feature_weight=0.1, layers=2, num_layers=1, num_heads=1, num_out_heads=1, weight_decay=0.001, epochs=400, patience=30, in_drop=0.1, early_stop=True, residual=False, negative_slope=0.2, att_loss_weight=0.5, IR=0.1, IR_set=0, cost=2, seed=42, print_interval=50, blank=0)
+2025-12-01 12:19:35 - |This is the 1th layer!|
+2025-12-01 12:19:38 - [Layer 1] Ep 0: Loss=1.3210/0.6703 | AUC=0.5305/0.6836 | F1=0.5077/0.6151 | Rec=0.5077/0.6106 | G-Mean=0.4718/0.5436
+2025-12-01 12:19:39 - Early stopping triggered at epoch 30
+2025-12-01 12:19:40 - |This is the 2th layer!|
+2025-12-01 12:19:41 - [Layer 2] Ep 0: Loss=1.0369/0.6928 | AUC=0.7265/0.8322 | F1=0.6774/0.7955 | Rec=0.6716/0.7811 | G-Mean=0.6518/0.7682
+2025-12-01 12:19:41 - Early stopping triggered at epoch 30
+2025-12-01 12:19:42 - 
+Final Test Report:
+              precision    recall  f1-score   support
+
+           0     0.8127    0.9085    0.8580       831
+           1     0.7406    0.5550    0.6345       391
+
+    accuracy                         0.7954      1222
+   macro avg     0.7767    0.7318    0.7462      1222
+weighted avg     0.7896    0.7954    0.7865      1222
+
+2025-12-01 12:19:42 - Final Result -> Macro AUC: 0.7591, Macro F1: 0.7462, Macro Recall: 0.7318, G-mean: 0.7101, Acc: 0.7954
+2025-12-01 12:19:42 - Experiment finished in 0m 7s
+2025-12-01 12:19:42 - Experiment summary saved to training_records_sichuan/2025-12-01_12-19-35/experiment_summary.json
+2025-12-01 12:20:48 - 
+==================== New Experiment Started: 2025-12-01_12-20-48 ====================
+2025-12-01 12:20:48 - Run Directory: training_records_sichuan/2025-12-01_12-20-48
+2025-12-01 12:20:48 - Arguments: Namespace(dataset='Sichuan', train_size=0.6, lr=0.002, hid=128, dropout=0, adj_dropout=0.4, attn_drop=0.5, attention_weight=0.1, feature_weight=0.1, layers=2, num_layers=1, num_heads=1, num_out_heads=1, weight_decay=0.001, epochs=400, patience=50, in_drop=0.1, early_stop=True, residual=False, negative_slope=0.2, att_loss_weight=0.5, IR=0.1, IR_set=0, cost=2, seed=42, print_interval=50, blank=0)
+2025-12-01 12:20:48 - |This is the 1th layer!|
+2025-12-01 12:20:52 - [Layer 1] Ep 0: Loss=1.3210/0.6703 | AUC=0.5305/0.6836 | F1=0.5077/0.6151 | Rec=0.5077/0.6106 | G-Mean=0.4718/0.5436
+2025-12-01 12:20:54 - [Layer 1] Ep 50: Loss=0.4175/0.2701 | AUC=0.9417/0.9336 | F1=0.8902/0.8776 | Rec=0.8724/0.8579 | G-Mean=0.8663/0.8499
+2025-12-01 12:20:54 - Early stopping triggered at epoch 50
+2025-12-01 12:20:55 - |This is the 2th layer!|
+2025-12-01 12:20:55 - [Layer 2] Ep 0: Loss=1.0368/0.6928 | AUC=0.7134/0.8316 | F1=0.6675/0.7928 | Rec=0.6636/0.7779 | G-Mean=0.6462/0.7641
+2025-12-01 12:20:57 - [Layer 2] Ep 50: Loss=0.9462/0.6725 | AUC=0.8280/0.8229 | F1=0.8256/0.8218 | Rec=0.8297/0.8268 | G-Mean=0.8285/0.8257
+2025-12-01 12:20:57 - Early stopping triggered at epoch 50
+2025-12-01 12:20:58 - 
+Final Test Report:
+              precision    recall  f1-score   support
+
+           0     0.8127    0.9085    0.8580       831
+           1     0.7406    0.5550    0.6345       391
+
+    accuracy                         0.7954      1222
+   macro avg     0.7767    0.7318    0.7462      1222
+weighted avg     0.7896    0.7954    0.7865      1222
+
+2025-12-01 12:20:58 - Final Result -> Macro AUC: 0.7591, Macro F1: 0.7462, Macro Recall: 0.7318, G-mean: 0.7101, Acc: 0.7954
+2025-12-01 12:20:58 - Experiment finished in 0m 9s
+2025-12-01 12:20:58 - Experiment summary saved to training_records_sichuan/2025-12-01_12-20-48/experiment_summary.json
+2025-12-01 12:22:46 - 
+==================== New Experiment Started: 2025-12-01_12-22-46 ====================
+2025-12-01 12:22:46 - Run Directory: training_records_sichuan/2025-12-01_12-22-46
+2025-12-01 12:22:46 - Arguments: Namespace(dataset='Sichuan', train_size=0.6, lr=0.002, hid=128, dropout=0, adj_dropout=0.4, attn_drop=0.5, attention_weight=0.1, feature_weight=0.1, layers=2, num_layers=1, num_heads=1, num_out_heads=1, weight_decay=0.001, epochs=400, patience=50, in_drop=0.1, early_stop=False, residual=False, negative_slope=0.2, att_loss_weight=0.5, IR=0.1, IR_set=0, cost=2, seed=42, print_interval=50, blank=0)
+2025-12-01 12:22:46 - |This is the 1th layer!|
+2025-12-01 12:22:49 - [Layer 1] Ep 0: Loss=1.3210/0.6703 | AUC=0.5305/0.6836 | F1=0.5077/0.6151 | Rec=0.5077/0.6106 | G-Mean=0.4718/0.5436
+2025-12-01 12:22:50 - [Layer 1] Ep 50: Loss=0.4175/0.2701 | AUC=0.9417/0.9336 | F1=0.8902/0.8776 | Rec=0.8724/0.8579 | G-Mean=0.8663/0.8499
+2025-12-01 12:22:52 - [Layer 1] Ep 100: Loss=0.3695/0.2552 | AUC=0.9594/0.9410 | F1=0.9208/0.8856 | Rec=0.9080/0.8708 | G-Mean=0.9053/0.8657
+2025-12-01 12:22:54 - [Layer 1] Ep 150: Loss=0.3466/0.2512 | AUC=0.9664/0.9446 | F1=0.9270/0.8874 | Rec=0.9145/0.8747 | G-Mean=0.9121/0.8705
+2025-12-01 12:22:56 - [Layer 1] Ep 200: Loss=0.3266/0.2513 | AUC=0.9717/0.9459 | F1=0.9322/0.8932 | Rec=0.9215/0.8803 | G-Mean=0.9197/0.8764
+2025-12-01 12:22:58 - [Layer 1] Ep 250: Loss=0.3237/0.2515 | AUC=0.9743/0.9468 | F1=0.9372/0.8958 | Rec=0.9257/0.8849 | G-Mean=0.9238/0.8817
+2025-12-01 12:23:00 - [Layer 1] Ep 300: Loss=0.3097/0.2534 | AUC=0.9773/0.9464 | F1=0.9382/0.9005 | Rec=0.9265/0.8892 | G-Mean=0.9246/0.8861
+2025-12-01 12:23:02 - [Layer 1] Ep 350: Loss=0.2988/0.2564 | AUC=0.9790/0.9461 | F1=0.9448/0.8987 | Rec=0.9343/0.8880 | G-Mean=0.9328/0.8850
+2025-12-01 12:23:04 - |This is the 2th layer!|
+2025-12-01 12:23:04 - [Layer 2] Ep 0: Loss=1.0036/0.6741 | AUC=0.9418/0.9278 | F1=0.8887/0.8775 | Rec=0.8799/0.8674 | G-Mean=0.8770/0.8637
+2025-12-01 12:23:06 - [Layer 2] Ep 50: Loss=0.9050/0.6113 | AUC=0.8696/0.8650 | F1=0.8313/0.8267 | Rec=0.8344/0.8305 | G-Mean=0.8331/0.8292
+2025-12-01 12:23:08 - [Layer 2] Ep 100: Loss=0.8355/0.5513 | AUC=0.8761/0.8720 | F1=0.8351/0.8290 | Rec=0.8370/0.8316 | G-Mean=0.8355/0.8301
+2025-12-01 12:23:10 - [Layer 2] Ep 150: Loss=0.8012/0.5109 | AUC=0.8866/0.8824 | F1=0.8388/0.8351 | Rec=0.8387/0.8351 | G-Mean=0.8367/0.8331
+2025-12-01 12:23:12 - [Layer 2] Ep 200: Loss=0.7787/0.4857 | AUC=0.8947/0.8885 | F1=0.8448/0.8424 | Rec=0.8427/0.8399 | G-Mean=0.8403/0.8373
+2025-12-01 12:23:14 - [Layer 2] Ep 250: Loss=0.7629/0.4694 | AUC=0.8995/0.8927 | F1=0.8464/0.8461 | Rec=0.8430/0.8416 | G-Mean=0.8402/0.8385
+2025-12-01 12:23:15 - [Layer 2] Ep 300: Loss=0.7552/0.4583 | AUC=0.9006/0.8957 | F1=0.8484/0.8451 | Rec=0.8439/0.8403 | G-Mean=0.8409/0.8371
+2025-12-01 12:23:17 - [Layer 2] Ep 350: Loss=0.7468/0.4509 | AUC=0.9044/0.8974 | F1=0.8515/0.8451 | Rec=0.8461/0.8403 | G-Mean=0.8429/0.8371
+2025-12-01 12:23:19 - 
+Final Test Report:
+              precision    recall  f1-score   support
+
+           0     0.9227    0.9771    0.9492       831
+           1     0.9444    0.8261    0.8813       391
+
+    accuracy                         0.9288      1222
+   macro avg     0.9336    0.9016    0.9152      1222
+weighted avg     0.9297    0.9288    0.9274      1222
+
+2025-12-01 12:23:19 - Final Result -> Macro AUC: 0.9505, Macro F1: 0.9152, Macro Recall: 0.9016, G-mean: 0.8984, Acc: 0.9288
+2025-12-01 12:23:19 - Experiment finished in 0m 32s
+2025-12-01 12:23:19 - Experiment summary saved to training_records_sichuan/2025-12-01_12-22-46/experiment_summary.json
+2025-12-01 14:39:58 - 
+==================== New Experiment Started: 2025-12-01_14-39-58 ====================
+2025-12-01 14:39:58 - Run Directory: training_records_sichuan/2025-12-01_14-39-58
+2025-12-01 14:39:58 - Arguments: Namespace(dataset='Sichuan', train_size=0.6, lr=0.002, hid=128, dropout=0, adj_dropout=0.4, attn_drop=0.5, attention_weight=0.1, feature_weight=0.1, layers=2, num_layers=1, num_heads=1, num_out_heads=1, weight_decay=0.001, epochs=500, patience=60, in_drop=0.1, early_stop=False, residual=False, negative_slope=0.2, att_loss_weight=0.5, IR=0.1, IR_set=0, cost=2, seed=42, print_interval=50, blank=0)
+2025-12-01 14:39:58 - |This is the 1th layer!|
+2025-12-01 14:40:02 - [Layer 1] Ep 0: Loss=1.3210/0.6703 | AUC=0.5305/0.6836 | F1=0.5077/0.6151 | Rec=0.5077/0.6106 | G-Mean=0.4718/0.5436
+2025-12-01 14:40:03 - [Layer 1] Ep 50: Loss=0.4175/0.2701 | AUC=0.9417/0.9336 | F1=0.8902/0.8776 | Rec=0.8724/0.8579 | G-Mean=0.8663/0.8499
+2025-12-01 14:40:05 - [Layer 1] Ep 100: Loss=0.3695/0.2552 | AUC=0.9594/0.9410 | F1=0.9208/0.8856 | Rec=0.9080/0.8708 | G-Mean=0.9053/0.8657
+2025-12-01 14:40:07 - [Layer 1] Ep 150: Loss=0.3466/0.2512 | AUC=0.9664/0.9446 | F1=0.9270/0.8874 | Rec=0.9145/0.8747 | G-Mean=0.9121/0.8705
+2025-12-01 14:40:09 - [Layer 1] Ep 200: Loss=0.3266/0.2513 | AUC=0.9717/0.9459 | F1=0.9322/0.8932 | Rec=0.9215/0.8803 | G-Mean=0.9197/0.8764
+2025-12-01 14:40:11 - [Layer 1] Ep 250: Loss=0.3237/0.2515 | AUC=0.9743/0.9468 | F1=0.9372/0.8958 | Rec=0.9257/0.8849 | G-Mean=0.9238/0.8817
+2025-12-01 14:40:13 - [Layer 1] Ep 300: Loss=0.3097/0.2534 | AUC=0.9773/0.9464 | F1=0.9382/0.9005 | Rec=0.9265/0.8892 | G-Mean=0.9246/0.8861
+2025-12-01 14:40:15 - [Layer 1] Ep 350: Loss=0.2988/0.2564 | AUC=0.9790/0.9461 | F1=0.9448/0.8987 | Rec=0.9343/0.8880 | G-Mean=0.9328/0.8850
+2025-12-01 14:40:17 - [Layer 1] Ep 400: Loss=0.2995/0.2601 | AUC=0.9790/0.9456 | F1=0.9385/0.8995 | Rec=0.9269/0.8880 | G-Mean=0.9251/0.8847
+2025-12-01 14:40:19 - [Layer 1] Ep 450: Loss=0.2976/0.2633 | AUC=0.9810/0.9446 | F1=0.9460/0.9004 | Rec=0.9369/0.8886 | G-Mean=0.9357/0.8853
+2025-12-01 14:40:21 - |This is the 2th layer!|
+2025-12-01 14:40:22 - [Layer 2] Ep 0: Loss=1.0016/0.6729 | AUC=0.9424/0.9270 | F1=0.8887/0.8775 | Rec=0.8799/0.8674 | G-Mean=0.8770/0.8637
+2025-12-01 14:40:23 - [Layer 2] Ep 50: Loss=0.8937/0.6035 | AUC=0.8700/0.8656 | F1=0.8334/0.8292 | Rec=0.8358/0.8323 | G-Mean=0.8343/0.8309
+2025-12-01 14:40:25 - [Layer 2] Ep 100: Loss=0.8217/0.5426 | AUC=0.8782/0.8734 | F1=0.8369/0.8306 | Rec=0.8380/0.8328 | G-Mean=0.8363/0.8313
+2025-12-01 14:40:27 - [Layer 2] Ep 150: Loss=0.7819/0.5021 | AUC=0.8887/0.8836 | F1=0.8423/0.8401 | Rec=0.8409/0.8387 | G-Mean=0.8386/0.8364
+2025-12-01 14:40:29 - [Layer 2] Ep 200: Loss=0.7611/0.4771 | AUC=0.8938/0.8899 | F1=0.8463/0.8447 | Rec=0.8434/0.8410 | G-Mean=0.8409/0.8382
+2025-12-01 14:40:31 - [Layer 2] Ep 250: Loss=0.7448/0.4611 | AUC=0.9003/0.8935 | F1=0.8503/0.8451 | Rec=0.8458/0.8403 | G-Mean=0.8428/0.8371
+2025-12-01 14:40:33 - [Layer 2] Ep 300: Loss=0.7402/0.4504 | AUC=0.9020/0.8966 | F1=0.8509/0.8468 | Rec=0.8455/0.8415 | G-Mean=0.8423/0.8382
+2025-12-01 14:40:35 - [Layer 2] Ep 350: Loss=0.7312/0.4433 | AUC=0.9056/0.8980 | F1=0.8521/0.8468 | Rec=0.8465/0.8415 | G-Mean=0.8433/0.8382
+2025-12-01 14:40:37 - [Layer 2] Ep 400: Loss=0.7304/0.4386 | AUC=0.9051/0.8990 | F1=0.8513/0.8476 | Rec=0.8457/0.8421 | G-Mean=0.8423/0.8387
+2025-12-01 14:40:39 - [Layer 2] Ep 450: Loss=0.7270/0.4349 | AUC=0.9057/0.9002 | F1=0.8529/0.8476 | Rec=0.8471/0.8421 | G-Mean=0.8438/0.8387
+2025-12-01 14:40:40 - 
+Final Test Report:
+              precision    recall  f1-score   support
+
+           0     0.9204    0.9735    0.9462       831
+           1     0.9359    0.8210    0.8747       391
+
+    accuracy                         0.9247      1222
+   macro avg     0.9281    0.8972    0.9104      1222
+weighted avg     0.9253    0.9247    0.9233      1222
+
+2025-12-01 14:40:40 - Final Result -> Macro AUC: 0.9496, Macro F1: 0.9104, Macro Recall: 0.8972, G-mean: 0.8940, Acc: 0.9247
+2025-12-01 14:40:40 - Experiment finished in 0m 42s
+2025-12-01 14:40:40 - Experiment summary saved to training_records_sichuan/2025-12-01_14-39-58/experiment_summary.json
+2025-12-01 14:52:11 - 
+==================== New Experiment Started: 2025-12-01_14-52-11 ====================
+2025-12-01 14:52:11 - Run Directory: training_records_sichuan/2025-12-01_14-52-11
+2025-12-01 14:52:11 - Arguments: Namespace(dataset='Sichuan', train_size=0.6, lr=0.002, hid=128, dropout=0, adj_dropout=0.4, attn_drop=0.5, attention_weight=0.1, feature_weight=0.1, layers=2, num_layers=1, num_heads=1, num_out_heads=1, weight_decay=0.001, epochs=1000, patience=60, in_drop=0.1, early_stop=False, residual=False, negative_slope=0.2, att_loss_weight=0.5, IR=0.1, IR_set=0, cost=2, seed=42, print_interval=50, blank=0)
+2025-12-01 14:52:11 - |This is the 1th layer!|
+2025-12-01 14:52:13 - [Layer 1] Ep 0: Loss=1.3210/0.6703 | AUC=0.5305/0.6836 | F1=0.5077/0.6151 | Rec=0.5077/0.6106 | G-Mean=0.4718/0.5436
+2025-12-01 14:52:15 - [Layer 1] Ep 50: Loss=0.4175/0.2701 | AUC=0.9417/0.9336 | F1=0.8902/0.8776 | Rec=0.8724/0.8579 | G-Mean=0.8663/0.8499
+2025-12-01 14:52:17 - [Layer 1] Ep 100: Loss=0.3695/0.2552 | AUC=0.9594/0.9410 | F1=0.9208/0.8856 | Rec=0.9080/0.8708 | G-Mean=0.9053/0.8657
+2025-12-01 14:52:19 - [Layer 1] Ep 150: Loss=0.3466/0.2512 | AUC=0.9664/0.9446 | F1=0.9270/0.8874 | Rec=0.9145/0.8747 | G-Mean=0.9121/0.8705
+2025-12-01 14:52:21 - [Layer 1] Ep 200: Loss=0.3266/0.2513 | AUC=0.9717/0.9459 | F1=0.9322/0.8932 | Rec=0.9215/0.8803 | G-Mean=0.9197/0.8764
+2025-12-01 14:52:23 - [Layer 1] Ep 250: Loss=0.3237/0.2515 | AUC=0.9743/0.9468 | F1=0.9372/0.8958 | Rec=0.9257/0.8849 | G-Mean=0.9238/0.8817
+2025-12-01 14:52:25 - [Layer 1] Ep 300: Loss=0.3096/0.2534 | AUC=0.9773/0.9464 | F1=0.9382/0.9005 | Rec=0.9265/0.8892 | G-Mean=0.9246/0.8861
+2025-12-01 14:52:27 - [Layer 1] Ep 350: Loss=0.2988/0.2564 | AUC=0.9790/0.9461 | F1=0.9448/0.8987 | Rec=0.9343/0.8880 | G-Mean=0.9328/0.8850
+2025-12-01 14:52:29 - [Layer 1] Ep 400: Loss=0.2995/0.2601 | AUC=0.9790/0.9456 | F1=0.9385/0.8995 | Rec=0.9269/0.8880 | G-Mean=0.9251/0.8847
+2025-12-01 14:52:31 - [Layer 1] Ep 450: Loss=0.2976/0.2633 | AUC=0.9810/0.9446 | F1=0.9460/0.9004 | Rec=0.9369/0.8886 | G-Mean=0.9357/0.8853
+2025-12-01 14:52:33 - [Layer 1] Ep 500: Loss=0.2900/0.2679 | AUC=0.9833/0.9439 | F1=0.9475/0.8977 | Rec=0.9382/0.8867 | G-Mean=0.9369/0.8836
+2025-12-01 14:52:35 - [Layer 1] Ep 550: Loss=0.2918/0.2717 | AUC=0.9840/0.9435 | F1=0.9469/0.8970 | Rec=0.9375/0.8868 | G-Mean=0.9363/0.8839
+2025-12-01 14:52:37 - [Layer 1] Ep 600: Loss=0.2813/0.2722 | AUC=0.9859/0.9436 | F1=0.9508/0.8977 | Rec=0.9424/0.8867 | G-Mean=0.9414/0.8836
+2025-12-01 14:52:39 - [Layer 1] Ep 650: Loss=0.2791/0.2789 | AUC=0.9864/0.9432 | F1=0.9463/0.8943 | Rec=0.9369/0.8850 | G-Mean=0.9357/0.8822
+2025-12-01 14:52:41 - [Layer 1] Ep 700: Loss=0.2796/0.2791 | AUC=0.9878/0.9426 | F1=0.9496/0.8989 | Rec=0.9414/0.8887 | G-Mean=0.9404/0.8858
+2025-12-01 14:52:42 - [Layer 1] Ep 750: Loss=0.2752/0.2798 | AUC=0.9874/0.9430 | F1=0.9501/0.8962 | Rec=0.9407/0.8869 | G-Mean=0.9395/0.8841
+2025-12-01 14:52:44 - [Layer 1] Ep 800: Loss=0.2732/0.2825 | AUC=0.9891/0.9424 | F1=0.9536/0.8933 | Rec=0.9438/0.8837 | G-Mean=0.9426/0.8808
+2025-12-01 14:52:46 - [Layer 1] Ep 850: Loss=0.2734/0.2856 | AUC=0.9882/0.9424 | F1=0.9516/0.8934 | Rec=0.9442/0.8844 | G-Mean=0.9433/0.8816
+2025-12-01 14:52:48 - [Layer 1] Ep 900: Loss=0.2756/0.2912 | AUC=0.9889/0.9410 | F1=0.9486/0.8917 | Rec=0.9403/0.8832 | G-Mean=0.9393/0.8805
+2025-12-01 14:52:50 - [Layer 1] Ep 950: Loss=0.2680/0.2911 | AUC=0.9886/0.9420 | F1=0.9512/0.8970 | Rec=0.9428/0.8868 | G-Mean=0.9418/0.8839
+2025-12-01 14:52:52 - |This is the 2th layer!|
+2025-12-01 14:52:52 - [Layer 2] Ep 0: Loss=0.9940/0.6693 | AUC=0.9433/0.9245 | F1=0.8882/0.8716 | Rec=0.8797/0.8638 | G-Mean=0.8769/0.8606
+2025-12-01 14:52:54 - [Layer 2] Ep 50: Loss=0.8596/0.5837 | AUC=0.8705/0.8647 | F1=0.8409/0.8317 | Rec=0.8413/0.8341 | G-Mean=0.8394/0.8326
+2025-12-01 14:52:56 - [Layer 2] Ep 100: Loss=0.7838/0.5188 | AUC=0.8812/0.8752 | F1=0.8471/0.8480 | Rec=0.8445/0.8455 | G-Mean=0.8420/0.8431
+2025-12-01 14:52:58 - [Layer 2] Ep 150: Loss=0.7442/0.4784 | AUC=0.8903/0.8863 | F1=0.8533/0.8478 | Rec=0.8478/0.8428 | G-Mean=0.8446/0.8396
+2025-12-01 14:53:00 - [Layer 2] Ep 200: Loss=0.7202/0.4543 | AUC=0.8962/0.8925 | F1=0.8560/0.8455 | Rec=0.8493/0.8396 | G-Mean=0.8458/0.8360
+2025-12-01 14:53:02 - [Layer 2] Ep 250: Loss=0.7060/0.4398 | AUC=0.9021/0.8960 | F1=0.8561/0.8486 | Rec=0.8489/0.8414 | G-Mean=0.8452/0.8373
+2025-12-01 14:53:03 - [Layer 2] Ep 300: Loss=0.6990/0.4304 | AUC=0.9044/0.8984 | F1=0.8605/0.8512 | Rec=0.8521/0.8432 | G-Mean=0.8482/0.8389
+2025-12-01 14:53:05 - [Layer 2] Ep 350: Loss=0.6949/0.4245 | AUC=0.9044/0.9000 | F1=0.8560/0.8518 | Rec=0.8480/0.8431 | G-Mean=0.8439/0.8386
+2025-12-01 14:53:07 - [Layer 2] Ep 400: Loss=0.6946/0.4203 | AUC=0.9055/0.9008 | F1=0.8582/0.8544 | Rec=0.8500/0.8449 | G-Mean=0.8461/0.8403
+2025-12-01 14:53:09 - [Layer 2] Ep 450: Loss=0.6905/0.4174 | AUC=0.9090/0.9019 | F1=0.8584/0.8552 | Rec=0.8491/0.8455 | G-Mean=0.8447/0.8408
+2025-12-01 14:53:11 - [Layer 2] Ep 500: Loss=0.6873/0.4154 | AUC=0.9078/0.9025 | F1=0.8602/0.8542 | Rec=0.8508/0.8443 | G-Mean=0.8464/0.8394
+2025-12-01 14:53:13 - [Layer 2] Ep 550: Loss=0.6833/0.4141 | AUC=0.9096/0.9027 | F1=0.8620/0.8542 | Rec=0.8522/0.8443 | G-Mean=0.8478/0.8394
+2025-12-01 14:53:15 - [Layer 2] Ep 600: Loss=0.6866/0.4129 | AUC=0.9068/0.9027 | F1=0.8595/0.8531 | Rec=0.8497/0.8430 | G-Mean=0.8452/0.8380
+2025-12-01 14:53:16 - [Layer 2] Ep 650: Loss=0.6845/0.4123 | AUC=0.9100/0.9034 | F1=0.8608/0.8520 | Rec=0.8512/0.8417 | G-Mean=0.8467/0.8366
+2025-12-01 14:53:18 - [Layer 2] Ep 700: Loss=0.6850/0.4118 | AUC=0.9091/0.9033 | F1=0.8601/0.8520 | Rec=0.8503/0.8417 | G-Mean=0.8458/0.8366
+2025-12-01 14:53:20 - [Layer 2] Ep 750: Loss=0.6825/0.4116 | AUC=0.9086/0.9037 | F1=0.8604/0.8520 | Rec=0.8505/0.8417 | G-Mean=0.8460/0.8366
+2025-12-01 14:53:22 - [Layer 2] Ep 800: Loss=0.6870/0.4115 | AUC=0.9075/0.9036 | F1=0.8610/0.8520 | Rec=0.8511/0.8417 | G-Mean=0.8466/0.8366
+2025-12-01 14:53:24 - [Layer 2] Ep 850: Loss=0.6846/0.4113 | AUC=0.9096/0.9036 | F1=0.8605/0.8520 | Rec=0.8503/0.8417 | G-Mean=0.8456/0.8366
+2025-12-01 14:53:26 - [Layer 2] Ep 900: Loss=0.6836/0.4111 | AUC=0.9090/0.9037 | F1=0.8603/0.8520 | Rec=0.8503/0.8417 | G-Mean=0.8457/0.8366
+2025-12-01 14:53:28 - [Layer 2] Ep 950: Loss=0.6827/0.4111 | AUC=0.9073/0.9036 | F1=0.8609/0.8529 | Rec=0.8507/0.8423 | G-Mean=0.8461/0.8371
+2025-12-01 14:53:29 - 
+Final Test Report:
+              precision    recall  f1-score   support
+
+           0     0.9227    0.9771    0.9492       831
+           1     0.9444    0.8261    0.8813       391
+
+    accuracy                         0.9288      1222
+   macro avg     0.9336    0.9016    0.9152      1222
+weighted avg     0.9297    0.9288    0.9274      1222
+
+2025-12-01 14:53:29 - Final Result -> Macro AUC: 0.9465, Macro F1: 0.9152, Macro Recall: 0.9016, G-mean: 0.8984, Acc: 0.9288
+2025-12-01 14:53:29 - Experiment finished in 1m 18s
+2025-12-01 14:53:29 - Experiment summary saved to training_records_sichuan/2025-12-01_14-52-11/experiment_summary.json
+2025-12-01 15:19:54 - 
+==================== New Experiment Started: 2025-12-01_15-19-54 ====================
+2025-12-01 15:19:54 - Run Directory: training_records_sichuan/2025-12-01_15-19-54
+2025-12-01 15:19:54 - Arguments: Namespace(dataset='Sichuan', train_size=0.6, lr=0.002, hid=128, dropout=0, adj_dropout=0.4, attn_drop=0.5, attention_weight=0.1, feature_weight=0.1, layers=1, num_layers=1, num_heads=1, num_out_heads=1, weight_decay=0.001, epochs=400, patience=60, in_drop=0.1, early_stop=False, residual=False, negative_slope=0.2, att_loss_weight=0.5, IR=0.1, IR_set=0, cost=2, seed=42, print_interval=50, blank=0)
+2025-12-01 15:19:55 - |This is the 1th layer!|
+2025-12-01 15:19:57 - [Layer 1] Ep 0: Loss=1.3210/0.6703 | AUC=0.5305/0.6836 | F1=0.5077/0.6151 | Rec=0.5077/0.6106 | G-Mean=0.4718/0.5436
+2025-12-01 15:19:59 - [Layer 1] Ep 50: Loss=0.4175/0.2701 | AUC=0.9417/0.9336 | F1=0.8902/0.8776 | Rec=0.8724/0.8579 | G-Mean=0.8663/0.8499
+2025-12-01 15:20:01 - [Layer 1] Ep 100: Loss=0.3695/0.2552 | AUC=0.9594/0.9410 | F1=0.9208/0.8856 | Rec=0.9080/0.8708 | G-Mean=0.9053/0.8657
+2025-12-01 15:20:03 - [Layer 1] Ep 150: Loss=0.3465/0.2512 | AUC=0.9664/0.9446 | F1=0.9270/0.8874 | Rec=0.9145/0.8747 | G-Mean=0.9121/0.8705
+2025-12-01 15:20:05 - [Layer 1] Ep 200: Loss=0.3267/0.2513 | AUC=0.9717/0.9459 | F1=0.9322/0.8932 | Rec=0.9215/0.8803 | G-Mean=0.9197/0.8764
+2025-12-01 15:20:07 - [Layer 1] Ep 250: Loss=0.3237/0.2515 | AUC=0.9743/0.9468 | F1=0.9372/0.8958 | Rec=0.9257/0.8849 | G-Mean=0.9238/0.8817
+2025-12-01 15:20:08 - [Layer 1] Ep 300: Loss=0.3097/0.2534 | AUC=0.9773/0.9464 | F1=0.9382/0.9005 | Rec=0.9265/0.8892 | G-Mean=0.9246/0.8861
+2025-12-01 15:20:10 - [Layer 1] Ep 350: Loss=0.2988/0.2564 | AUC=0.9790/0.9461 | F1=0.9448/0.8987 | Rec=0.9343/0.8880 | G-Mean=0.9328/0.8850
+2025-12-01 15:20:12 - 
+Final Test Report:
+              precision    recall  f1-score   support
+
+           0     0.9187    0.9795    0.9482       831
+           1     0.9494    0.8159    0.8776       391
+
+    accuracy                         0.9272      1222
+   macro avg     0.9341    0.8977    0.9129      1222
+weighted avg     0.9285    0.9272    0.9256      1222
+
+2025-12-01 15:20:12 - Final Result -> Macro AUC: 0.9512, Macro F1: 0.9129, Macro Recall: 0.8977, G-mean: 0.8940, Acc: 0.9272
+2025-12-01 15:20:12 - Experiment finished in 0m 17s
+2025-12-01 15:20:12 - Experiment summary saved to training_records_sichuan/2025-12-01_15-19-54/experiment_summary.json
+2025-12-01 16:17:00 - 
+==================== New Experiment Started: 2025-12-01_16-17-00 ====================
+2025-12-01 16:17:00 - Run Directory: training_records_sichuan_0/2025-12-01_16-17-00
+2025-12-01 16:17:00 - Arguments: Namespace(dataset='Sichuan', train_size=0.6, lr=0.002, hid=128, dropout=0, adj_dropout=0.4, attn_drop=0.5, attention_weight=0.1, feature_weight=0.1, layers=2, num_layers=1, num_heads=1, num_out_heads=1, weight_decay=0.001, epochs=400, patience=60, in_drop=0.1, early_stop=False, residual=False, negative_slope=0.2, att_loss_weight=0.5, IR=0.1, IR_set=0, cost=2, seed=42, print_interval=50, blank=0)
+2025-12-01 16:17:00 - |This is the 1th layer!|
+2025-12-01 16:17:04 - [Layer 1] Ep 0: Loss=1.3210/0.6703 | AUC=0.5305/0.6836 | F1=0.5077/0.6151 | Rec=0.5077/0.6106 | G-Mean=0.4718/0.5436
+2025-12-01 16:17:06 - [Layer 1] Ep 50: Loss=0.4175/0.2701 | AUC=0.9417/0.9336 | F1=0.8902/0.8776 | Rec=0.8724/0.8579 | G-Mean=0.8663/0.8499
+2025-12-01 16:17:08 - [Layer 1] Ep 100: Loss=0.3695/0.2552 | AUC=0.9594/0.9410 | F1=0.9208/0.8856 | Rec=0.9080/0.8708 | G-Mean=0.9053/0.8657
+2025-12-01 16:17:10 - [Layer 1] Ep 150: Loss=0.3465/0.2512 | AUC=0.9664/0.9446 | F1=0.9270/0.8874 | Rec=0.9145/0.8747 | G-Mean=0.9121/0.8705
+2025-12-01 16:17:12 - [Layer 1] Ep 200: Loss=0.3267/0.2513 | AUC=0.9717/0.9459 | F1=0.9322/0.8932 | Rec=0.9215/0.8803 | G-Mean=0.9197/0.8764
+2025-12-01 16:17:14 - [Layer 1] Ep 250: Loss=0.3237/0.2515 | AUC=0.9743/0.9468 | F1=0.9372/0.8958 | Rec=0.9257/0.8849 | G-Mean=0.9238/0.8817
+2025-12-01 16:17:16 - [Layer 1] Ep 300: Loss=0.3097/0.2534 | AUC=0.9773/0.9464 | F1=0.9382/0.9005 | Rec=0.9265/0.8892 | G-Mean=0.9246/0.8861
+2025-12-01 16:17:18 - [Layer 1] Ep 350: Loss=0.2988/0.2564 | AUC=0.9790/0.9461 | F1=0.9448/0.8987 | Rec=0.9343/0.8880 | G-Mean=0.9328/0.8850
+2025-12-01 16:17:20 - |This is the 2th layer!|
+2025-12-01 16:17:20 - [Layer 2] Ep 0: Loss=1.0036/0.6741 | AUC=0.9418/0.9278 | F1=0.8887/0.8775 | Rec=0.8799/0.8674 | G-Mean=0.8770/0.8637
+2025-12-01 16:17:22 - [Layer 2] Ep 50: Loss=0.9050/0.6113 | AUC=0.8696/0.8650 | F1=0.8313/0.8267 | Rec=0.8344/0.8305 | G-Mean=0.8331/0.8292
+2025-12-01 16:17:24 - [Layer 2] Ep 100: Loss=0.8355/0.5513 | AUC=0.8761/0.8720 | F1=0.8351/0.8290 | Rec=0.8370/0.8316 | G-Mean=0.8355/0.8301
+2025-12-01 16:17:26 - [Layer 2] Ep 150: Loss=0.8012/0.5109 | AUC=0.8866/0.8824 | F1=0.8388/0.8351 | Rec=0.8387/0.8351 | G-Mean=0.8367/0.8331
+2025-12-01 16:17:28 - [Layer 2] Ep 200: Loss=0.7787/0.4857 | AUC=0.8947/0.8885 | F1=0.8448/0.8424 | Rec=0.8427/0.8399 | G-Mean=0.8403/0.8373
+2025-12-01 16:17:30 - [Layer 2] Ep 250: Loss=0.7629/0.4694 | AUC=0.8995/0.8926 | F1=0.8464/0.8461 | Rec=0.8430/0.8416 | G-Mean=0.8402/0.8385
+2025-12-01 16:17:32 - [Layer 2] Ep 300: Loss=0.7552/0.4583 | AUC=0.9006/0.8957 | F1=0.8484/0.8451 | Rec=0.8439/0.8403 | G-Mean=0.8409/0.8371
+2025-12-01 16:17:33 - [Layer 2] Ep 350: Loss=0.7468/0.4509 | AUC=0.9043/0.8974 | F1=0.8518/0.8459 | Rec=0.8463/0.8409 | G-Mean=0.8431/0.8376
+2025-12-01 16:17:35 - 
+Final Test Report:
+              precision    recall  f1-score   support
+
+           0     0.9227    0.9771    0.9492       831
+           1     0.9444    0.8261    0.8813       391
+
+    accuracy                         0.9288      1222
+   macro avg     0.9336    0.9016    0.9152      1222
+weighted avg     0.9297    0.9288    0.9274      1222
+
+2025-12-01 16:17:35 - Final Result -> Macro AUC: 0.9505, Macro F1: 0.9152, Macro Recall: 0.9016, G-mean: 0.8984, Acc: 0.9288
+2025-12-01 16:17:35 - Experiment finished in 0m 34s
+2025-12-01 16:17:35 - Experiment summary saved to training_records_sichuan_0/2025-12-01_16-17-00/experiment_summary.json

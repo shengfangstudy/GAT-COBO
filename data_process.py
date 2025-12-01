@@ -24,18 +24,25 @@ class TelcomFraudDataset(DGLDataset):
         # load raw feature and labels
         idx_features_labels = np.genfromtxt("{}{}.csv".format(path, "all_feat_with_label"),
                                             dtype=np.dtype(str), delimiter=',', skip_header=1)
+        # 去掉第 0 列的 phone_no_m 和最后一列的 label，只取特征，用 csr_matrix 转为稀疏矩阵格式，方便后续处理/节省内存
         features = spp.csr_matrix(idx_features_labels[:, 1:-1], dtype=np.float32)
 
         #normalize the feature with z-score
         # features=StandardScaler().fit_transform(features.todense())
+        # 让每个特征维度均值为 0、方差为 1
+        # features.todense()：从 CSR 转成 dense 矩阵
         features = StandardScaler().fit_transform(np.asarray(features.todense()))
+
+        # 取得标签
         labels = np.array(idx_features_labels[:, -1], dtype=np.int_)
         self.labels=torch.tensor(labels)
         node_features = torch.from_numpy(np.array(features))
         node_labels = torch.from_numpy(labels)
 
         # load adjacency matrix
+        #　从 node_adj_sparse.npz 读取邻接矩阵（稀疏）
         adj = spp.load_npz(path + 'node_adj_sparse.npz')
+        # .toarray() 先变成 dense，然后再 coo_matrix,这里有一点点绕，本质上是确保类型为 coo_matrix，方便后续运算
         adj = adj.toarray()
         adj = spp.coo_matrix(adj)
 

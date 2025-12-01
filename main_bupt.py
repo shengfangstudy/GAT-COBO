@@ -170,10 +170,10 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 setup_seed(args.seed)
 
 # set Beijing time for logging
-def beijing(sec,what):
+""" def beijing(sec,what):
     beijing_time = datetime.datetime.now() + datetime.timedelta(hours=8)
     return beijing_time.timetuple()
-logging.Formatter.converter = beijing
+logging.Formatter.converter = beijing """
 
 # logging configuration
 log_name=(datetime.datetime.now() + datetime.timedelta(hours=8)).strftime('%Y-%m-%d')
