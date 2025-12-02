@@ -32,3 +32,11 @@ data_process_zhu.py主叫协同图数据集构建
 Sichuan_tele_zhu.bin是数据预处理后得到的图dgl数据（由data_process文件得到）
 main_sichuan1.py是原有代码跑通-->加上监控机制-->主叫协同图
 training_records_sichuan_1
+
+## 各类权重
+data_process_me.py计算各类权重
+utilsme.py加入团伙难度、伪装难例、损失计算函数
+main_sichuan2.py
+注意：当前的代码，每次的Loss计算，都是使用当前epoch的预测计算的，感觉不对，和boosting不一致，boosting是每个弱分类器确定一个权重，且下一个弱分类器依赖上一个弱分类器的结果更新权重。
+
+## 符合boosting的权重
