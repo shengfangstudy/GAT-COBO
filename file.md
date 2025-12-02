@@ -37,6 +37,10 @@ training_records_sichuan_1
 data_process_me.py计算各类权重
 utilsme.py加入团伙难度、伪装难例、损失计算函数
 main_sichuan2.py
+training_records_sichuan_2
 注意：当前的代码，每次的Loss计算，都是使用当前epoch的预测计算的，感觉不对，和boosting不一致，boosting是每个弱分类器确定一个权重，且下一个弱分类器依赖上一个弱分类器的结果更新权重。
 
 ## 符合boosting的权重
+main_sichuan3.py
+utilsme1.py
+training_records_sichuan_3

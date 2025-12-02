@@ -1,0 +1,43 @@
+{
+    "timestamp": "2025-12-02_10-00-57",
+    "duration": "0m 33s",
+    "args": {
+        "dataset": "Sichuan",
+        "train_size": 0.6,
+        "lr": 0.002,
+        "hid": 128,
+        "dropout": 0,
+        "adj_dropout": 0.4,
+        "attn_drop": 0.5,
+        "in_drop": 0.1,
+        "attention_weight": 0.1,
+        "feature_weight": 0.1,
+        "layers": 2,
+        "num_layers": 1,
+        "num_heads": 1,
+        "num_out_heads": 1,
+        "weight_decay": 0.001,
+        "epochs": 400,
+        "patience": 60,
+        "early_stop": false,
+        "residual": false,
+        "negative_slope": 0.2,
+        "att_loss_weight": 0.5,
+        "print_interval": 50,
+        "IR": 0.1,
+        "IR_set": 0,
+        "cost": 2,
+        "seed": 42,
+        "blank": 0,
+        "lambda_I": 1.0,
+        "lambda_G": 1.0,
+        "lambda_D": 1.0
+    },
+    "metrics": {
+        "Macro AUC": 0.9452112975153961,
+        "Macro F1": 0.8991305304864627,
+        "Macro Recall": 0.9018407551374026,
+        "G-mean": 0.9014316711091505,
+        "Accuracy": 0.911620294599018
+    }
+}
