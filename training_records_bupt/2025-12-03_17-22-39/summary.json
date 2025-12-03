@@ -1,0 +1,42 @@
+{
+    "timestamp": "2025-12-03_17-22-39",
+    "duration": "2m 22s",
+    "args": {
+        "dataset": "BUPT",
+        "lr": 0.01,
+        "hid": 64,
+        "dropout": 0.2,
+        "adj_dropout": 0.1,
+        "attn_drop": 0.1,
+        "in_drop": 0.1,
+        "attention_weight": 0.5,
+        "feature_weight": 0.6,
+        "layers": 2,
+        "num_layers": 1,
+        "num_heads": 1,
+        "num_out_heads": 1,
+        "weight_decay": 0.001,
+        "epochs": 400,
+        "patience": 50,
+        "early_stop": false,
+        "residual": false,
+        "negative_slope": 0.2,
+        "att_loss_weight": 0.01,
+        "print_interval": 50,
+        "IR": 0.1,
+        "IR_set": 0,
+        "cost": 2,
+        "seed": 42,
+        "blank": 0,
+        "lambda_I": 1.0,
+        "lambda_G": 1.0,
+        "lambda_D": 1.0
+    },
+    "metrics": {
+        "Macro AUC": 0.9361481573164531,
+        "Macro F1": 0.6422033983777831,
+        "Macro Recall": 0.8187141851411659,
+        "G-mean": 0.8524482162842443,
+        "Accuracy": 0.758602912746488
+    }
+}

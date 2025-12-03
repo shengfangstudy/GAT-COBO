@@ -50,3 +50,10 @@ training_records_sichuan_3
 data_process_correct_bupt.pt修正bupt数据集生成错误：feature文件和labels文件第一列不对齐，但是源代码假设他们对其了
 BUPT_tele_correct.bin修复后生成的代码
 main_bupt_correct.py修复后的运行代码（效果和论文还是不一样）
+
+## 对bupt做同样逻辑
+main_bupt_me.py
+training_records_bupt
+data_process_correct_bupt_me
+当前代码是Ge
+效果还没调好
