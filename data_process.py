@@ -87,15 +87,20 @@ class TelcomFraudDataset(DGLDataset):
 
 def BUPT_process():
     # load feature,labels and edges
+    # feature.shape = (N, 1+F)：第一列是原始节点 ID，后面 F 列是特征
     feature = np.genfromtxt("./data/BUPT/TF.features", dtype=np.dtype(str), delimiter=' ')
+    # labels.shape = (>=N, 2)：第一列原始节点 ID，第二列类别
     labels = np.genfromtxt("./data/BUPT/TF.labels", dtype=np.dtype(str), delimiter=' ')
+    # edges.shape = (E, 2)：每行一条边，两个原始节点 ID
     edges = np.genfromtxt("./data/BUPT/TF.edgelist", dtype=np.dtype(str), delimiter=' ')
 
     # normalize feature
+    # 去掉 features 的第一列（原始 ID），只保留特征矩阵 (N, F)
     features = feature[:, 1:]
     features = features.astype(np.float32)
     normolize_features = StandardScaler().fit_transform(features)
 
+    
     used_labels = labels[:len(feature), :]
     label_extract = used_labels[:, 1]
     label_extract = label_extract.reshape(len(label_extract), 1)
