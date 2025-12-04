@@ -185,7 +185,7 @@ def get_args():
 
     # Training
     parser.add_argument('--weight_decay', type=float, default=1e-3)
-    parser.add_argument("--epochs", type=int, default=400)
+    parser.add_argument("--epochs", type=int, default=2000)
     parser.add_argument('--patience', type=int, default=60)
     parser.add_argument('--early_stop', action='store_true', default=False)
     parser.add_argument("--residual", action="store_true", default=False)
@@ -196,9 +196,7 @@ def get_args():
     # Imbalance & Cost
     parser.add_argument('--IR', type=float, default=0.1)
     parser.add_argument('--IR_set', type=int, default=0)
-    parser.add_argument('--cost', type=int, default=2)
     parser.add_argument('--seed', type=int, default=42)
-    parser.add_argument('--blank', type=int, default=0)
 
     # HAS-GNN 超参
     parser.add_argument('--lambda_I', type=float, default=1.0,
@@ -443,9 +441,6 @@ def main():
 
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     logging.info(f"Arguments: {args}")
-
-    if args.blank == 1:
-        sys.exit()
 
     g, features, labels, n_classes = load_data(args, device)
     train_mask = g.ndata['train_mask']

@@ -22,8 +22,7 @@ from dgl.data.utils import load_graphs, load_info
 from imblearn.metrics import geometric_mean_score
 
 # 导入自定义模块
-from utils import EarlyStopping, misclassification_cost, _set_cost_matrix, cost_table_calc, _validate_cost_matrix
-# 确保 calc_dynamic_factors 在 utils.py 中
+from utils import EarlyStopping
 from utilsme1 import calc_dynamic_factors 
 from model import GAT_COBO
 
@@ -183,9 +182,7 @@ def get_args():
     # Imbalance & Cost
     parser.add_argument('--IR', type=float, default=0.1)
     parser.add_argument('--IR_set', type=int, default=0)
-    parser.add_argument('--cost', type=int, default=2)
     parser.add_argument('--seed', type=int, default=42)
-    parser.add_argument('--blank', type=int, default=0)
 
     # === HAS-GNN Hyperparameters (关键参数) ===
     parser.add_argument('--lambda_I', type=float, default=1.0, help='Coef for Structural Importance')
@@ -322,7 +319,7 @@ def train_single_layer(layer_idx, model, optimizer, g, features, labels, sample_
 
     return model
 
-def update_boosting(model, features, labels, train_mask, sample_weights, cost_matrix, n_classes, g, args, device):
+def update_boosting(model, features, labels, train_mask, sample_weights, n_classes, g, args, device):
     """
     [最终修正版] HAS-GNN 权重更新逻辑
     
@@ -394,8 +391,6 @@ def main():
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     logging.info(f"Arguments: {args}")
 
-    if args.blank == 1: sys.exit()
-
     g, features, labels, n_classes = load_data(args, device)
     train_mask, test_mask = g.ndata['train_mask'], g.ndata['test_mask']
 
@@ -418,8 +413,6 @@ def main():
     # 4. 归一化
     sample_weights = init_weights / init_weights.sum()
 
-    how_dic = {0:'uniform', 1:'inverse', 2:'log1p-inverse'}
-    cost_matrix_df = cost_table_calc(_validate_cost_matrix(_set_cost_matrix(labels[train_mask].cpu(), how=how_dic[args.cost]), n_classes))
     stopper = EarlyStopping(args.patience) if args.early_stop else None
 
     heads = ([args.num_heads] * args.num_layers) + [args.num_out_heads]
@@ -436,7 +429,7 @@ def main():
         model = train_single_layer(layer, model, optimizer, g, features, labels, sample_weights, n_classes, args, stopper, exp_manager)
         
         # Boosting Update (使用 HAS-GNN 逻辑)
-        h, sample_weights, features = update_boosting(model, features, labels, train_mask, sample_weights, cost_matrix_df, n_classes, g, args, device)
+        h, sample_weights, features = update_boosting(model, features, labels, train_mask, sample_weights, n_classes, g, args, device)
         final_results += h
 
     # Final Evaluation
