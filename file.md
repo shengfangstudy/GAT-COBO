@@ -57,3 +57,9 @@ training_records_bupt
 data_process_correct_bupt_me
 当前代码是Ge
 效果还没调好
+
+## chat对bupt做同样逻辑
+上个版本Ge给的不对
+main_bupt_me_chat
+data_process_correct_bupt_me_chat
+training_records_bupt_has
